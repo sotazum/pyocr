@@ -50,8 +50,7 @@ for i in range(len(img_list)):
     img_region_6 = input_img.crop((692, 1300, 2250, 1344))
     #画像の左上が原点。(x1, y1, x2, y2) 。ここの数字を変更してください。
                                                #x1,y1は左上の端。x2,y2は右下の端
-                                               #玉手箱言語問題文(642, 310, 2240, 977)
-                                               #玉手箱言語質問文(692, 1008, 2194, 1111)
+
 
     # OCRを実行する画像イメージや言語指定、オプション指定
     txt = tool.image_to_string(
@@ -139,6 +138,7 @@ for i in range(len(img_list)):
     print('j', j)
     print('i', i)
 
+#以下Excel操作
 df = pd.DataFrame(df)
 df.to_excel('excel/sample_2.xlsx', sheet_name='Sheet1')
 wb = openpyxl.load_workbook('excel/sample_2.xlsx')
@@ -149,4 +149,4 @@ for i in range(len(nums)):
     img = openpyxl.drawing.image.Image(img_list[x])
     pos = 'J' + str(i+2)
     ws.add_image(img, pos)
-wb.save('excel/sample_2.xlsx')
+wb.save('excel/sample_2.xlsx') #Excelに保存
